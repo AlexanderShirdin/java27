@@ -21,5 +21,8 @@ public class DZ {
 
         //Метод возвращает количество четных чисел
         System.out.println(DZUtils.ChetNumbers(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+
+        //Метод возвращает параметр boolean, принимая тестовую переменную "пароль"
+        System.out.println(DZUtils.PassVer("Qwerty123"));
     }
 }

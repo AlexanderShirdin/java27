@@ -90,4 +90,8 @@ public class DZUtils {
         }
         return countChet;
     }
+
+    public static boolean PassVer(String text) {
+        return (text.matches("^.*[A-Z].*$")) & (text.matches("^.*[0-9].*$")) & (text.length() > 8);
+    }
 }
