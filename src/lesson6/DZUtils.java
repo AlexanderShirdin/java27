@@ -80,4 +80,14 @@ public class DZUtils {
         double areaTri2 = valueB / 4 * (Math.sqrt(4 * Math.pow(valueA, stepen) - Math.pow(valueB, stepen)));
         return areaTri2;
     }
+
+    public static int ChetNumbers(Integer[] numArray) {
+        int countChet = 0;
+        for (int i = 1; i <= numArray.length; i++) {
+            if (i % 2 == 0) {
+                countChet++;
+            }
+        }
+        return countChet;
+    }
 }
