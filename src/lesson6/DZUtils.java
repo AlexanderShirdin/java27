@@ -91,7 +91,12 @@ public class DZUtils {
         return countChet;
     }
 
-    public static boolean PassVer(String text) {
+    public static boolean PassVert(String text) {
         return (text.matches("^.*[A-Z].*$")) & (text.matches("^.*[0-9].*$")) & (text.length() > 8);
+    }
+
+    public static boolean Email(String text) {
+//      return text.matches("^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$");
+        return text.matches("^[a-zA-Z0-9_+&*-]+(\\.[a-zA-Z0-9_+&*-]+)*@([a-zA-Z0-9-]+\\.)[a-zA-Z]{2,7}$");
     }
 }
