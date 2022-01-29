@@ -81,7 +81,7 @@ public class DZUtils {
         return areaTri2;
     }
 
-    public static int ChetNumbers(Integer[] numArray) {
+    public static int chetNumbers(Integer[] numArray) {
         int countChet = 0;
         for (int i = 1; i <= numArray.length; i++) {
             if (i % 2 == 0) {
@@ -91,11 +91,11 @@ public class DZUtils {
         return countChet;
     }
 
-    public static boolean PassVert(String text) {
+    public static boolean passVert(String text) {
         return (text.matches("^.*[A-Z].*$")) & (text.matches("^.*[0-9].*$")) & (text.length() > 8);
     }
 
-    public static boolean Email(String text) {
+    public static boolean email(String text) {
 //      return text.matches("^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$");
         return text.matches("^[a-zA-Z0-9_+&*-]+(\\.[a-zA-Z0-9_+&*-]+)*@([a-zA-Z0-9-]+\\.)[a-zA-Z]{2,7}$");
     }
