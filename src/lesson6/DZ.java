@@ -26,6 +26,6 @@ public class DZ {
         System.out.println(DZUtils.PassVert("Qwerty123"));
 
         //Метод возвращает параметр boolean, принимая тестовую переменную "email"
-        System.out.println(DZUtils.Email("n.ame@gmail.com"));
+        System.out.println(DZUtils.Email("n.am.e@gmail.com"));
     }
 }
