@@ -7,7 +7,7 @@ public class Main {
         vasya.setAge(23);
         vasya.setPosition("Бухгалтер");
 
-        Person petya = new Person(40,"Лесоруб");
+        Person petya = new Person(40, "Лесоруб");
 
 
         System.out.println(vasya.getAge());

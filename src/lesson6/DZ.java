@@ -20,12 +20,12 @@ public class DZ {
         System.out.println(DZUtils.valueTrinagle2(4, 5));
 
         //Метод возвращает количество четных чисел
-        System.out.println(DZUtils.ChetNumbers(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+        System.out.println(DZUtils.chetNumbers(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
 
         //Метод возвращает параметр boolean, принимая тестовую переменную "пароль"
-        System.out.println(DZUtils.PassVert("Qwerty123"));
+        System.out.println(DZUtils.passVert("Qwerty123"));
 
         //Метод возвращает параметр boolean, принимая тестовую переменную "email"
-        System.out.println(DZUtils.Email("n.am.e@gmail.com"));
+        System.out.println(DZUtils.email("n.am.e@gmail.com"));
     }
 }
