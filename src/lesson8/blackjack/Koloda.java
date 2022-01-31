@@ -72,6 +72,7 @@ public class Koloda {
         cards.add(new Card("Туз пика", 11));
         cards.add(new Card("Туз черви", 11));
     }
+
     // колода возвращает рандомную карту
     public Card anyCard() {
         Random randomGenerator = new Random();
@@ -81,4 +82,3 @@ public class Koloda {
         return it;
     }
 }
-
