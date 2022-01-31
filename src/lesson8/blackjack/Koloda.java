@@ -1,6 +1,7 @@
 package lesson8.blackjack;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Koloda {
     private ArrayList<Card> cards = new ArrayList<>();
@@ -66,11 +67,18 @@ public class Koloda {
         cards.add(new Card("Король пика", 10));
         cards.add(new Card("Король черви", 10));
 
-        cards.add(new Card("Туз трефа", 10));
-        cards.add(new Card("Туз бубна", 10));
-        cards.add(new Card("Туз пика", 10));
-        cards.add(new Card("Туз черви", 10));
+        cards.add(new Card("Туз трефа", 11));
+        cards.add(new Card("Туз бубна", 11));
+        cards.add(new Card("Туз пика", 11));
+        cards.add(new Card("Туз черви", 11));
+    }
+    // колода возвращает рандомную карту
+    public Card anyCard() {
+        Random randomGenerator = new Random();
+        int index = randomGenerator.nextInt(cards.size());
+        Card it = cards.get(index);
+        System.out.println(it.getName() + " (" + it.getValue() + ")");
+        return it;
     }
 }
 
-// колода возвращает рандомную карту

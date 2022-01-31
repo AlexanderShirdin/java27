@@ -8,7 +8,8 @@ public class Main {
         vasya.setPosition("Бухгалтер");
 
         Person petya = new Person(40, "Лесоруб");
-
+        // petya.setAge(40);
+        // petya.setPosition("Лесоруб");
 
         System.out.println(vasya.getAge());
         System.out.println(petya.getAge());

@@ -59,7 +59,7 @@ public class Tovar {
         this.otzivs = otzivs;
     }
 
-    public void addOtziv(Otziv otziv){
+    public void addOtziv(Otziv otziv) {
         otzivs.add(otziv);
     }
 }
