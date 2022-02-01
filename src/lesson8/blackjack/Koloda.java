@@ -74,11 +74,11 @@ public class Koloda {
     }
 
     // колода возвращает рандомную карту
-    public Card anyCard() {
+    public Card randomCard() {
         Random randomGenerator = new Random();
         int index = randomGenerator.nextInt(cards.size());
-        Card it = cards.get(index);
-        System.out.println(it.getName() + " (" + it.getValue() + ")");
-        return it;
+        Card dealCard = cards.get(index);
+        System.out.println(dealCard.getName() + " (" + dealCard.getValue() + ")");
+        return dealCard;
     }
 }
