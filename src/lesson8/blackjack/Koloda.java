@@ -78,7 +78,7 @@ public class Koloda {
         Random randomGenerator = new Random();
         int index = randomGenerator.nextInt(cards.size());
         Card dealCard = cards.get(index);
-        System.out.println(dealCard.getName() + " (" + dealCard.getValue() + ")");
+//        System.out.println(dealCard.getName() + " (" + dealCard.getValue() + ")");
         return dealCard;
     }
 }
