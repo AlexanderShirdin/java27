@@ -80,4 +80,10 @@ public class Koloda {
         Card dealCard = cards.get(index);
         return dealCard;
     }
+
+    @Override
+    public String toString() {
+        Card dealCard = randomCard();
+        return dealCard.getName() + " (" + dealCard.getValue() + ")";
+    }
 }

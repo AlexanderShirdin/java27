@@ -5,5 +5,6 @@ public class Main {
         Koloda koloda = new Koloda();
         Card dealCard = koloda.randomCard();
         System.out.println(dealCard.getName() + " (" + dealCard.getValue() + ")");
+        System.out.println(koloda.toString());
     }
 }
