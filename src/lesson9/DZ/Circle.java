@@ -1,7 +1,7 @@
 package lesson9.DZ;
 
 public class Circle extends SizeOfSpace {
-    protected double radiusA;
+    private double radiusA;
 
     public Circle() {
     }
@@ -41,7 +41,6 @@ public class Circle extends SizeOfSpace {
 
     @Override
     public String toString() {
-        return "Круг: " + "площадь - " + getArea() + ", периметр - " + getPerimeter() +
-                ", радиус А - " + radiusA + ")";
+        return "радиус А - " + radiusA + ", ";
     }
 }

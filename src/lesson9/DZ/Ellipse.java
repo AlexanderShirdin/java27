@@ -1,7 +1,7 @@
 package lesson9.DZ;
 
 public class Ellipse extends Circle {
-    protected double radiusB;
+    private double radiusB;
 
     public Ellipse() {
     }
@@ -41,7 +41,6 @@ public class Ellipse extends Circle {
 
     @Override
     public String toString() {
-        return "Еллипс: " + "площадь - " + getArea() + ", периметр - " + getPerimeter() +
-                ", радиус А - " + radiusA + ", радиус B - " + radiusB + ")";
+        return "радиус B - " + radiusB + ", ";
     }
 }

@@ -1,7 +1,7 @@
 package lesson9.DZ;
 
 public class NumOfVertex extends SizeOfSpace {
-    protected int vertex;
+   private int vertex;
 
     public NumOfVertex() {
     }

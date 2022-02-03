@@ -52,9 +52,8 @@ public class SizeOfSpace {
 
     @Override
     public String toString() {
-        return "SizeOfSpace{" +
-                "area=" + area +
-                ", perimeter=" + perimeter +
-                '}';
+        return "площадь - " + area +
+                ", периметр - " + perimeter +
+                ")";
     }
 }

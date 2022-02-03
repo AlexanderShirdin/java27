@@ -1,7 +1,7 @@
 package lesson9.DZ;
 
 public class Square extends NumOfVertex {
-    protected double sideA;
+    private double sideA;
 
     public Square() {
     }
@@ -41,7 +41,6 @@ public class Square extends NumOfVertex {
 
     @Override
     public String toString() {
-        return "Квадрат: " + "площадь - " + getArea() + ", периметр - " + getPerimeter() +
-                ", количество вершин - " + getVertex() + ", сторона А - " + sideA + ")";
+        return "сторона А - " + sideA + ", ";
     }
 }

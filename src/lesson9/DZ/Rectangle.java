@@ -1,7 +1,7 @@
 package lesson9.DZ;
 
 public class Rectangle extends Square {
-    protected double sideB;
+    private double sideB;
 
     public Rectangle() {
     }
@@ -41,7 +41,6 @@ public class Rectangle extends Square {
 
     @Override
     public String toString() {
-        return "Прямоугольник: " + "площадь - " + getArea() + ", периметр - " + getPerimeter() + ", количество вершин - "
-                + getVertex() + ", сторона А - " + getSideA() + ", сторона В - " + sideB + ")";
+        return "сторона B - " + sideB + ", ";
     }
 }

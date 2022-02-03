@@ -1,7 +1,7 @@
 package lesson9.DZ;
 
 public class Triangle extends NumOfVertex {
-    protected double sideA;
+    private double sideA;
 
     public Triangle() {
     }
@@ -41,7 +41,6 @@ public class Triangle extends NumOfVertex {
 
     @Override
     public String toString() {
-        return "Равнобедренный треугольник: " + "площадь - " + getArea() + ", периметр - " + getPerimeter()
-                + ", количество вершин - " + getVertex() + ", сторона А - " + sideA + ")";
+        return "сторона А - " + sideA + ", ";
     }
 }
