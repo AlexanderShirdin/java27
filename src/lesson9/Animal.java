@@ -40,13 +40,13 @@ public class Animal {
     @Override
     public boolean equals(Object o) {
         // this - объект у которого вызван метод
-        // o или animal - объект который вложен внутрь входящего параметра
+        // o после animal - объект который вложен внутрь входящего параметра
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Animal animal = (Animal) o;
 
-        if (age != animal.age) return false;
+        if (this.age != animal.age) return false;
         // тернарный оператор
         return name != null ? name.equals(animal.name) : animal.name == null;
     }
@@ -60,9 +60,6 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return name + ", возраст " + age;
     }
 }

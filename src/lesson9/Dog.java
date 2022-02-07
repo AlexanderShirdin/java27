@@ -4,12 +4,13 @@ public class Dog extends Animal {
     public Dog() {
 
     }
+
     public Dog(String name, int age) {
         // вариант 1 (присвоение полей к родительскому классу)
 //        this.setAge(age);
 //        this.setName(name);
 
-        // вариант 2 (смена модификатора доступа в родительсвком классе)
+        // вариант 2 (смена модификатора доступа в родительском классе)
 //        this.name = name;
 
         //вариант 3 (с помощью родительского конструктора)
@@ -17,6 +18,6 @@ public class Dog extends Animal {
     }
 
     public void voice() {
-        System.out.println("Гав-нав");
+        System.out.println("Гав-гав");
     }
 }

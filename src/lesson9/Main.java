@@ -13,8 +13,6 @@ public class Main {
         System.out.println(dog3.hashCode());
         System.out.println(dog.hashCode());
         System.out.println(dog.toString());
-
         // квадрат, прямоугольник, круг, овал, треугольник
-
     }
 }
