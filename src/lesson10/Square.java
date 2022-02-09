@@ -1,14 +1,14 @@
 package lesson10;
 
-public class Kvadrat implements Figura{
-    private Pryamougolnik pryamougolnik = new Pryamougolnik();
+public class Square implements Figura {
+    private Rectangle pryamougolnik = new Rectangle();
 
-    public Kvadrat() {
+    public Square() {
     }
 
-    public Kvadrat(int a) {
+    public Square(int a) {
         pryamougolnik.setA(a);
-        pryamougolnik.setA(a);
+        pryamougolnik.setB(a);
     }
 
     public int getA() {
@@ -25,7 +25,7 @@ public class Kvadrat implements Figura{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Kvadrat kvadrat = (Kvadrat) o;
+        Square kvadrat = (Square) o;
 
         return pryamougolnik != null ? pryamougolnik.equals(kvadrat.pryamougolnik) : kvadrat.pryamougolnik == null;
     }
@@ -37,18 +37,16 @@ public class Kvadrat implements Figura{
 
     @Override
     public String toString() {
-        return "Квадрат: {" +
-                " сторона = " + getA() +
-                '}';
+        return "Квадрат: сторона A = " + getA();
     }
 
     @Override
     public double perimetr() {
-        return 0;
+        return 4 * getA();
     }
 
     @Override
     public double ploshad() {
-        return 0;
+        return getA() * getA();
     }
 }

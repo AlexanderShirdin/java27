@@ -60,20 +60,16 @@ public class Triangle implements Figura{
 
     @Override
     public String toString() {
-        return "Triangle{" +
-                "a=" + a +
-                ", b=" + b +
-                ", c=" + c +
-                '}';
+        return "Треугольник: " + "сторона А = " + a + ", сторона Б = " + b + ", сторона С = " + c;
     }
 
     @Override
     public double perimetr() {
-        return 0;
+        return ((getA() * getA()) * Math.sqrt(3)) / 4;
     }
 
     @Override
     public double ploshad() {
-        return 0;
+        return 3 * getA();
     }
 }

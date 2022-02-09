@@ -1,13 +1,13 @@
 package lesson10;
 
-public class Pryamougolnik implements Figura{
+public class Rectangle implements Figura{
     private int a;
     private int b;
 
-    public Pryamougolnik() {
+    public Rectangle() {
     }
 
-    public Pryamougolnik(int a, int b) {
+    public Rectangle(int a, int b) {
         this.a = a;
         this.b = b;
     }
@@ -33,7 +33,7 @@ public class Pryamougolnik implements Figura{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Pryamougolnik that = (Pryamougolnik) o;
+        Rectangle that = (Rectangle) o;
 
         if (a != that.a) return false;
         return b == that.b;
@@ -48,19 +48,16 @@ public class Pryamougolnik implements Figura{
 
     @Override
     public String toString() {
-        return "Pryamougolnik{" +
-                "a=" + a +
-                ", b=" + b +
-                '}';
+        return "Прямоугольник: " + "сторона А = " + a + ", сторона Б = " + b;
     }
 
     @Override
     public double perimetr() {
-        return 0;
+        return getA() * getB();
     }
 
     @Override
     public double ploshad() {
-        return 0;
+        return 2 * (getA() + getB());
     }
 }

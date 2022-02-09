@@ -1,12 +1,12 @@
 package lesson10;
 
-public class Eclipse extends Circle implements Figura {
+public class Ellipse extends Circle implements Figura {
     private double radius2;
 
-    public Eclipse() {
+    public Ellipse() {
     }
 
-    public Eclipse(double radius, double radius2) {
+    public Ellipse(double radius, double radius2) {
         super(radius);
         this.radius2 = radius2;
     }
@@ -25,7 +25,7 @@ public class Eclipse extends Circle implements Figura {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        Eclipse eclipse = (Eclipse) o;
+        Ellipse eclipse = (Ellipse) o;
 
         return Double.compare(eclipse.radius2, radius2) == 0;
     }
@@ -41,18 +41,16 @@ public class Eclipse extends Circle implements Figura {
 
     @Override
     public String toString() {
-        return "Eclipse{" +
-                "radius2=" + radius2 +
-                '}';
+        return "Овал: " + "радиус А = " + getRadius() + ", радиус Б = " + getRadius2();
     }
 
     @Override
     public double perimetr() {
-        return 2 * Math.PI * Math.sqrt(((getRadius() * getRadius()) * (getRadius2() * getRadius2())) / 2);
+        return 4 * (Math.PI * getRadius() * getRadius2() + ((getRadius() - getRadius2()) * (getRadius() - getRadius2()))) / (getRadius() + getRadius2());
     }
 
     @Override
     public double ploshad() {
-        return Math.PI * getRadius() * getRadius2();
+        return Math.PI * getRadius2() * getRadius();
     }
 }

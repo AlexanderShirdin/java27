@@ -36,15 +36,11 @@ public class Circle implements Figura {
 
     @Override
     public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                '}';
+        return "Круг: " + "радиус А = " + getRadius();
     }
 
     @Override
-    public double perimetr() {
-        return 2 * Math.PI * radius;
-    }
+    public double perimetr() { return 2 * Math.PI * radius; }
 
     @Override
     public double ploshad() {
