@@ -1,15 +1,20 @@
 package lesson10.DZ;
 
 public class Matrix implements IMatrix {
+    private Matrix [][] matrix;
+
+    public Matrix(int rows, int columns) {
+    matrix = new Matrix[rows][columns];
+    }
 
     @Override
     public int getRows() {
-        return 5;
+        return 0;
     }
 
     @Override
     public int getColumns() {
-        return 5;
+        return 0;
     }
 
     @Override
@@ -74,6 +79,5 @@ public class Matrix implements IMatrix {
 
     @Override
     public void printToConsole() {
-
     }
 }
