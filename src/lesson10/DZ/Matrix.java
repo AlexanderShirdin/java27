@@ -1,35 +1,72 @@
 package lesson10.DZ;
 
 public class Matrix implements IMatrix {
-    private Matrix [][] matrix;
+    private double[][] numbers;
 
-    public Matrix(int rows, int columns) {
-    matrix = new Matrix[rows][columns];
+    public Matrix(int row, int col) {
+        numbers = new double[row][col];
+    }
+
+    public Matrix(double[][] numbers) {
+        this.numbers = numbers;
     }
 
     @Override
     public int getRows() {
-        return 0;
+        return numbers.length;
     }
 
     @Override
     public int getColumns() {
-        return 0;
+        return numbers[0].length;
     }
 
     @Override
     public double getValueAt(int rowIndex, int colIndex) throws IndexOutOfBoundsException {
-        return 0;
+        if (rowIndex < 0 || rowIndex >= getRows()) {
+            System.out.println("Неверный индекс строки!");
+            return -1;
+        }
+        if (colIndex < 0 || colIndex >= getColumns()) {
+            System.out.println("Неверный индекс колонки!");
+            return -1;
+        }
+        return numbers[rowIndex][colIndex];
     }
 
     @Override
     public void setValueAt(int rowIndex, int colIndex, double value) throws IndexOutOfBoundsException {
-
+        if (rowIndex < 0 || rowIndex >= getRows()) {
+            System.out.println("Неверный индекс строки!");
+            return;
+        }
+        if (colIndex < 0 || colIndex >= getColumns()) {
+            System.out.println("Неверный индекс колонки!");
+            return;
+        }
+        numbers[rowIndex][colIndex] = value;
     }
 
     @Override
     public IMatrix add(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        return null;
+        // this - первая матрица
+        // otherMatrix - вторая матрица
+        if (this.getColumns() != otherMatrix.getColumns()) {
+            System.out.println("Не одинаковое кол-во колонок!");
+            return null;
+        }
+        if (this.getColumns() != otherMatrix.getColumns()) {
+            System.out.println("Не одинаковое кол-во строк!");
+            return null;
+        }
+
+        Matrix matrix = new Matrix(this.getRows(), this.getColumns());
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                matrix.setValueAt(i, j, this.getValueAt(i, j) + otherMatrix.getValueAt(i, j));
+            }
+        }
+        return matrix;
     }
 
     @Override
@@ -64,7 +101,14 @@ public class Matrix implements IMatrix {
 
     @Override
     public boolean isNullMatrix() {
-        return false;
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                if (numbers[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @Override
