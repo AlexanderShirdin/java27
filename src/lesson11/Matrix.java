@@ -2,6 +2,8 @@ package lesson11;
 
 public class Matrix implements IMatrix {
     private double[][] numbers;
+    double temporary[][];
+    double res = 0;
 
     public Matrix(int row, int col) {
         numbers = new double[row][col];
@@ -82,11 +84,11 @@ public class Matrix implements IMatrix {
 
     @Override
     public IMatrix mul(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        Matrix matrix = new Matrix(otherMatrix.getRows(), otherMatrix.getColumns());
+        Matrix matrix = new Matrix(getRows(), otherMatrix.getColumns());
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < otherMatrix.getColumns(); j++) {
                 for (int k = 0; k < otherMatrix.getRows(); k++) {
-                    matrix.setValueAt(i, j, this.getValueAt(i, k) * otherMatrix.getValueAt(k, j));
+                    matrix.setValueAt(i, j, this.getValueAt(i, k) * otherMatrix.getValueAt(k, j) + matrix.getValueAt(i, j));
                 }
             }
         }
@@ -95,27 +97,61 @@ public class Matrix implements IMatrix {
 
     @Override
     public IMatrix mul(double value) {
-        return null;
+        Matrix matrix = new Matrix(getRows(), getColumns());
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                matrix.setValueAt(i, j, getValueAt(i, j) * value);
+            }
+        }
+        return matrix;
     }
 
     @Override
     public IMatrix transpose() {
-        return null;
+        Matrix matrix = new Matrix(getColumns(), getRows());
+        for (int i = 0; i < getColumns(); i++) {
+            for (int j = 0; j < getRows(); j++) {
+                matrix.setValueAt(i, j, getValueAt(j, i));
+            }
+        }
+        return matrix;
     }
 
+
     @Override
-    public void fillMatrix(double value) {
+    public IMatrix fillMatrix(double value) {
         Matrix matrix = new Matrix(getRows(), getColumns());
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
-                matrix.setValueAt(i, j, getValueAt(i, j));
+                matrix.setValueAt(i, j, value);
             }
         }
-        numbers[getRows()][getColumns()] = value;
+        return matrix;
     }
 
     @Override
     public double determinant() {
+//        if (numbers.length == 1) {
+//            res = numbers[0][0];
+//            return (res);
+//        }
+//        if (numbers.length == 2) {
+//            res = ((numbers[0][0] * numbers[1][1]) - (numbers[0][1] * numbers[1][0]));
+//            return (res);
+//        }
+//        for (int i = 0; i < numbers[0].length; i++) {
+//            temporary = new double[numbers.length - 1][numbers[0].length - 1];
+//            for (int j = 1; j < numbers.length; j++) {
+//                for (int k = 0; k < numbers[0].length; k++) {
+//                    if (k < i) {
+//                        temporary[j - 1][k] = numbers[j][k];
+//                    } else if (k > i) {
+//                        temporary[j - 1][k - 1] = numbers[j][k];
+//                    }
+//                }
+//            }
+//            res += numbers[0][i] * Math.pow(-1, (double) i) * determinant();
+//        }
         return 0;
     }
 
@@ -137,7 +173,7 @@ public class Matrix implements IMatrix {
     public boolean isIdentityMatrix() {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
-                if (numbers.length != numbers[0].length) {
+                if (getRows() != getColumns()) {
                     System.out.println("Матрица не квадратная");
                     return false;
                 } else if ((numbers[i] == numbers[j]) && (numbers[i][j] != 1)) {

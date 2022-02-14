@@ -100,10 +100,11 @@ public interface IMatrix {
 	
 	/**
 	 * Заполняет текущю матрицу заднным значением
-	 * 
+	 *
 	 * @param value значение
+	 * @return
 	 */
-	void fillMatrix(double value);
+	IMatrix fillMatrix(double value);
 	
 	/**
 	 * Вычисляет детерминант матрицы.<br/>
