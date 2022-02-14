@@ -12,6 +12,7 @@ public class Main1 {
         texts.add(0, "444");
         texts.set(0, "!!!");
 
+        System.out.println(texts);
         //способ прохода по коллекции:
         // 1 - for (только где есть индексы)
         for (int i = 0; i < texts.size(); i++) {

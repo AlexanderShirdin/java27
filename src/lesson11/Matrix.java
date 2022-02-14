@@ -55,11 +55,10 @@ public class Matrix implements IMatrix {
             System.out.println("Не одинаковое кол-во колонок!");
             return null;
         }
-        if (this.getColumns() != otherMatrix.getColumns()) {
+        if (this.getRows() != otherMatrix.getRows()) {
             System.out.println("Не одинаковое кол-во строк!");
             return null;
         }
-
         Matrix matrix = new Matrix(this.getRows(), this.getColumns());
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
@@ -71,12 +70,27 @@ public class Matrix implements IMatrix {
 
     @Override
     public IMatrix sub(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        return null;
+
+        Matrix matrix = new Matrix(this.getRows(), this.getColumns());
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                matrix.setValueAt(i, j, this.getValueAt(i, j) - otherMatrix.getValueAt(i, j));
+            }
+        }
+        return matrix;
     }
 
     @Override
     public IMatrix mul(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        return null;
+        Matrix matrix = new Matrix(otherMatrix.getRows(), otherMatrix.getColumns());
+        for (int i = 0; i < this.getRows(); i++) {
+            for (int j = 0; j < otherMatrix.getColumns(); j++) {
+                for (int k = 0; k < otherMatrix.getRows(); k++) {
+                    matrix.setValueAt(i, j, this.getValueAt(i, k) * otherMatrix.getValueAt(k, j));
+                }
+            }
+        }
+        return matrix;
     }
 
     @Override
@@ -91,7 +105,13 @@ public class Matrix implements IMatrix {
 
     @Override
     public void fillMatrix(double value) {
-
+        Matrix matrix = new Matrix(getRows(), getColumns());
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                matrix.setValueAt(i, j, getValueAt(i, j));
+            }
+        }
+        numbers[getRows()][getColumns()] = value;
     }
 
     @Override
@@ -104,24 +124,56 @@ public class Matrix implements IMatrix {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 if (numbers[i][j] != 0) {
+                    System.out.println("Матрица не является нулевой");
                     return false;
                 }
             }
         }
+        System.out.println("Матрица является нулевой");
         return true;
     }
 
     @Override
     public boolean isIdentityMatrix() {
-        return false;
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                if (numbers.length != numbers[0].length) {
+                    System.out.println("Матрица не квадратная");
+                    return false;
+                } else if ((numbers[i] == numbers[j]) && (numbers[i][j] != 1)) {
+                    System.out.println("Матрица не является единичной");
+                    return false;
+                } else if ((numbers[i] != numbers[j]) && (numbers[i][j] != 0)) {
+                    System.out.println("Матрица не является единичной");
+                    return false;
+                }
+            }
+        }
+        System.out.println("Матрица является единичной");
+        return true;
     }
 
     @Override
     public boolean isSquareMatrix() {
-        return false;
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                if (getRows() != getColumns()) {
+                    System.out.println("Матрица не является квадратной");
+                    return false;
+                }
+            }
+        }
+        System.out.println("Матрица является квадратной");
+        return true;
     }
 
     @Override
     public void printToConsole() {
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                System.out.print(numbers[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
