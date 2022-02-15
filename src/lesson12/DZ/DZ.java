@@ -38,17 +38,20 @@ public class DZ {
         coll3.addAll(coll1);
         coll3.removeAll(coll2);
         System.out.println("2. Разность 2 коллекции к 1: " + coll3);
+        coll3.addAll(coll2);
+        coll3.removeAll(coll1);
+        System.out.println("3. Разность 1 коллекции ко 2: " + coll3);
 
         // Метод объедения коллекций
         coll3.addAll(coll1);
         coll3.addAll(coll2);
-        System.out.println("3. Объединение 1 и 2 коллекций: " + coll3);
+        System.out.println("4. Объединение 1 и 2 коллекций: " + coll3);
 
         // Метод симметричной разности коллекций
         coll3.addAll(coll1);
         coll3.addAll(coll2);
         coll1.retainAll(coll2);
         coll3.removeAll(coll1);
-        System.out.println("4. Симметричная разность 1 и 2 коллекций: " + coll3);
+        System.out.println("5. Симметричная разность 1 и 2 коллекций: " + coll3);
     }
 }
