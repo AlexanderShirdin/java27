@@ -86,7 +86,7 @@ public class Coin implements Comparable<Coin> {
     @Override
     public int compareTo(Coin o) {
         // this - первая монета
-        //  o - вторая монета
+        // o - вторая монета
 
         if (this.nominal != o.nominal) {
             return o.nominal - this.nominal;

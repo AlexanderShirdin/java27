@@ -117,7 +117,6 @@ public class Matrix implements IMatrix {
         return matrix;
     }
 
-
     @Override
     public IMatrix fillMatrix(double value) {
         Matrix matrix = new Matrix(getRows(), getColumns());
@@ -160,46 +159,35 @@ public class Matrix implements IMatrix {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 if (numbers[i][j] != 0) {
-                    System.out.println("Матрица не является нулевой");
                     return false;
                 }
             }
         }
-        System.out.println("Матрица является нулевой");
         return true;
     }
 
     @Override
     public boolean isIdentityMatrix() {
+        if (getRows() != getColumns()) {
+            return false;
+        }
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
-                if (getRows() != getColumns()) {
-                    System.out.println("Матрица не квадратная");
-                    return false;
-                } else if ((numbers[i] == numbers[j]) && (numbers[i][j] != 1)) {
-                    System.out.println("Матрица не является единичной");
+                if ((numbers[i] == numbers[j]) && (numbers[i][j] != 1)) {
                     return false;
                 } else if ((numbers[i] != numbers[j]) && (numbers[i][j] != 0)) {
-                    System.out.println("Матрица не является единичной");
                     return false;
                 }
             }
         }
-        System.out.println("Матрица является единичной");
         return true;
     }
 
     @Override
     public boolean isSquareMatrix() {
-        for (int i = 0; i < getRows(); i++) {
-            for (int j = 0; j < getColumns(); j++) {
-                if (getRows() != getColumns()) {
-                    System.out.println("Матрица не является квадратной");
-                    return false;
-                }
-            }
+        if (getRows() != getColumns()) {
+            return false;
         }
-        System.out.println("Матрица является квадратной");
         return true;
     }
 
