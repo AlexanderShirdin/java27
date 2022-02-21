@@ -11,7 +11,5 @@ public class Main1 {
         telContacts.put("Георгий", "+7214115451");
         System.out.println(telContacts.countValues("Георгий"));
         System.out.println(telContacts.countValues("Василий"));
-        System.out.println(telContacts.get("Василий"));
-
     }
 }
