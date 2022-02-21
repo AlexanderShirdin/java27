@@ -30,6 +30,11 @@ public class Game implements IGame {
 
     @Override
     public void printWinner() {
+        // 12  21  34  19  19
+        // 12  23  34  19  19
+        // 12  18  19
+        // 34  34  19 !!!!
+        // 32  32  23 крупье !!!!!
         for (Player p : players) {
             if (p.valuesHand() > 21) {
                 p.setCanWin(false);
@@ -37,42 +42,37 @@ public class Game implements IGame {
         }
         if (cauntPlayersCanWin() == 0) {
             for (Player p : players) {
-                if (p instanceof Dealler) ;
-                System.out.println("Победитель крупье!");
-                p.openCards();
-                return;
+                if (p instanceof Dealler) {
+                    System.out.println("Выиграл крупье!");
+                    p.openCards();
+                    return;
+                }
             }
         }
-    }
-      if(
-
-    countPlayersCanWin()==1)
-
-    {
+        if (cauntPlayersCanWin() == 1) {
+            for (Player p : players) {
+                if (p.isCanWin()) {
+                    System.out.println("Выиграл другой игрок!");
+                    p.openCards();
+                    return;
+                }
+            }
+        }
+        // 12  12  34  19  19
+        int valueWinner = -1;
         for (Player p : players) {
-            if (p.isCanWin()) {
-                System.out.println("Победитель!");
-                p.openCards();
-                return;
+            if (p.isCanWin() && p.valuesHand() > valueWinner) {
+                valueWinner = p.valuesHand();
+
             }
         }
         for (Player p : players) {
             if (p.isCanWin() && p.valuesHand() == valueWinner) {
-                System.out.println("Победитель!");
+                System.out.println("Вы выиграли!");
                 p.openCards();
             }
         }
     }
-
-    int valueWinner = -1;
-      for(Player p:players){
-        if (p.isCanWin() && p.valuesHand() > valueWinner) {
-            valueWinner = p.valuesHand();
-
-        }
-    }
-
-}
     private int cauntPlayersCanWin() {
         int count = 0;
         for (Player p : players) {
