@@ -1,9 +1,6 @@
 package lesson14;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class MultiMapImpl<K, V> extends HashMap<K, V> implements MultiMap<K, V> {
     private HashMap<K, List<V>> multiMap = new HashMap<>();
@@ -32,6 +29,34 @@ public class MultiMapImpl<K, V> extends HashMap<K, V> implements MultiMap<K, V> 
 
     @Override
     public Iterator<V> valuesIterator(K key) {
-        return null;
+        if (multiMap.containsKey(key)) {
+            return multiMap.get(key).iterator();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Collection<V> values() {
+        LinkedList<V> values = new LinkedList<>();
+        for (K key : multiMap.keySet()) {
+            List<V> valuesFromKey = multiMap.get(key);
+            values.addAll(valuesFromKey);
+        }
+        return values;
+    }
+
+    @Override
+    public V get(Object key) {
+        if(multiMap.containsKey(key)){
+            return multiMap.get(key).get(multiMap.get(key).size()-1);
+        }else{
+            return null;
+        }
+    }
+
+    @Override
+    public void clear() {
+        multiMap.clear();
     }
 }
