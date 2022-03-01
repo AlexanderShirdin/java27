@@ -48,9 +48,9 @@ public class MultiMapImpl<K, V> extends HashMap<K, V> implements MultiMap<K, V> 
 
     @Override
     public V get(Object key) {
-        if(multiMap.containsKey(key)){
-            return multiMap.get(key).get(multiMap.get(key).size()-1);
-        }else{
+        if (multiMap.containsKey(key)) {
+            return multiMap.get(key).get(multiMap.get(key).size() - 1);
+        } else {
             return null;
         }
     }
@@ -58,5 +58,16 @@ public class MultiMapImpl<K, V> extends HashMap<K, V> implements MultiMap<K, V> 
     @Override
     public void clear() {
         multiMap.clear();
+    }
+
+    @Override
+    public V remove(Object key) {
+        if (multiMap.containsKey(key)) {
+            List<V> values = multiMap.get(key);
+            multiMap.get(key).removeAll(values);
+        } else {
+            return null;
+        }
+        return null;
     }
 }

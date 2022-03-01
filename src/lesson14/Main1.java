@@ -20,10 +20,10 @@ public class Main1 {
 //        for(String tel:telContacts.values()){
 //            System.out.println(tel);
 //        }
-        System.out.println(telContacts.get("Василий"));
-
-        System.out.println(telContacts);
-
+        System.out.println(telContacts.countValues("Василий"));
+        telContacts.remove("Василий");
+//        System.out.println(telContacts.get("Василий"));
+        System.out.println(telContacts.countValues("Василий"));
 //        telContacts.clear();
     }
 }

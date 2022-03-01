@@ -25,13 +25,23 @@ public class StringUtilImpl implements StringUtils {
         if (num2 == 0.0) {
             throw new ArithmeticException("Деление на 0 запрещено");
         }
-
         return num1 / num2;
     }
 
     @Override
     public int[] findWord(String text, String word) throws NullPointerException {
-        return new int[0];
+        ArrayList<Integer> words = new ArrayList<>();
+        for (int i = -1; (i = text.indexOf(word, i + 1)) != -1; i++) {
+            words.add(i);
+        }
+        if (words.size() == 0) {
+            throw new NullPointerException("Не найдено ни одного слова " + word);
+        }
+       int[] result = new int[words.size()];
+        for (int i = 0; i < words.size(); i++) {
+            result[i] = words.get(i);
+        }
+        return result;
     }
 
     @Override
@@ -41,8 +51,8 @@ public class StringUtilImpl implements StringUtils {
         while (m.find()) {
             numbers.add(Double.parseDouble(m.group(1)));
         }
-        if(numbers.size()==0){
-            throw new CustomException("не найдено ни одного числа");
+        if (numbers.size() == 0) {
+            throw new CustomException("Не найдено ни одного числа");
         }
 
         double[] result = new double[numbers.size()];
