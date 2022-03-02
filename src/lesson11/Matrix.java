@@ -26,12 +26,10 @@ public class Matrix implements IMatrix {
     @Override
     public double getValueAt(int rowIndex, int colIndex) throws IndexOutOfBoundsException {
         if (rowIndex < 0 || rowIndex >= getRows()) {
-            System.out.println("Неверный индекс строки!");
-            return -1;
+            throw new IndexOutOfBoundsException("rowIndex < 0 || rowIndex >= getRows()");
         }
         if (colIndex < 0 || colIndex >= getColumns()) {
-            System.out.println("Неверный индекс колонки!");
-            return -1;
+            throw new IndexOutOfBoundsException("colIndex < 0 || colIndex >= getColumns()");
         }
         return numbers[rowIndex][colIndex];
     }
@@ -39,12 +37,10 @@ public class Matrix implements IMatrix {
     @Override
     public void setValueAt(int rowIndex, int colIndex, double value) throws IndexOutOfBoundsException {
         if (rowIndex < 0 || rowIndex >= getRows()) {
-            System.out.println("Неверный индекс строки!");
-            return;
+            throw new IndexOutOfBoundsException("rowIndex < 0 || rowIndex >= getRows()");
         }
         if (colIndex < 0 || colIndex >= getColumns()) {
-            System.out.println("Неверный индекс колонки!");
-            return;
+            throw new IndexOutOfBoundsException("colIndex < 0 || colIndex >= getColumns()");
         }
         numbers[rowIndex][colIndex] = value;
     }
@@ -54,12 +50,13 @@ public class Matrix implements IMatrix {
         // this - первая матрица
         // otherMatrix - вторая матрица
         if (this.getColumns() != otherMatrix.getColumns()) {
-            System.out.println("Не одинаковое кол-во колонок!");
-            return null;
+            throw new IllegalArgumentException("getColumns() != otherMatrix.getColumns()");
         }
         if (this.getRows() != otherMatrix.getRows()) {
-            System.out.println("Не одинаковое кол-во строк!");
-            return null;
+            throw new IllegalArgumentException("this.getRows() != otherMatrix.getRows()");
+        }
+        if (otherMatrix.isNullMatrix()) {
+            throw new IllegalArgumentException("otherMatrix.isNullMatrix()");
         }
         Matrix matrix = new Matrix(this.getRows(), this.getColumns());
         for (int i = 0; i < getRows(); i++) {
@@ -72,7 +69,15 @@ public class Matrix implements IMatrix {
 
     @Override
     public IMatrix sub(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-
+        if (this.getColumns() != otherMatrix.getColumns()) {
+            throw new IllegalArgumentException("getColumns() != otherMatrix.getColumns()");
+        }
+        if (this.getRows() != otherMatrix.getRows()) {
+            throw new IllegalArgumentException("this.getRows() != otherMatrix.getRows()");
+        }
+        if (otherMatrix.isNullMatrix()) {
+            throw new IllegalArgumentException("otherMatrix.isNullMatrix()");
+        }
         Matrix matrix = new Matrix(this.getRows(), this.getColumns());
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
@@ -84,6 +89,12 @@ public class Matrix implements IMatrix {
 
     @Override
     public IMatrix mul(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
+        if (this.getColumns() != otherMatrix.getRows()) {
+            throw new IllegalArgumentException("this.getColumns() != otherMatrix.getRows()");
+        }
+        if (otherMatrix.isNullMatrix()) {
+            throw new IllegalArgumentException("otherMatrix.isNullMatrix()");
+        }
         Matrix matrix = new Matrix(getRows(), otherMatrix.getColumns());
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < otherMatrix.getColumns(); j++) {

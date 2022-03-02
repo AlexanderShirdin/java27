@@ -27,6 +27,7 @@ public class Main {
         Matrix matrix3 = new Matrix(num3);
         System.out.println("Матрица 3");
         matrix3.printToConsole();
+
         // Проверка на единичную матрицу
         System.out.println(matrix3.isIdentityMatrix());
         System.out.println();
@@ -38,6 +39,7 @@ public class Main {
         Matrix matrix4 = new Matrix(num4);
         System.out.println("Матрица 4");
         matrix4.printToConsole();
+
         // Проверка на нулевую матрицу
         System.out.println(matrix4.isNullMatrix());
         System.out.println();
@@ -48,6 +50,7 @@ public class Main {
         Matrix matrix5 = new Matrix(num5);
         System.out.println("Матрица 5");
         matrix5.printToConsole();
+
         // Проверка на квадратную матрицу
         System.out.println(matrix5.isSquareMatrix());
         System.out.println();
@@ -61,7 +64,7 @@ public class Main {
         System.out.println();
 
         // Возвращает элемент матрицы по заданным индексам
-        System.out.println("Элемент Матрицы 6 по индексам строки и столбца (1, 3)");
+        System.out.println("Элемент Матрицы 6 по индексам строки и столбца");
         System.out.println(matrix6.getValueAt(1, 3));
         System.out.println();
 
@@ -72,7 +75,7 @@ public class Main {
         System.out.println();
 
         // Результат вычитания матриц
-        IMatrix sub = matrix5.sub(matrix3);
+        IMatrix sub = matrix3.sub(matrix5);
         System.out.println("Результата вычитания Матриц 3 из 5");
         sub.printToConsole();
         System.out.println();
