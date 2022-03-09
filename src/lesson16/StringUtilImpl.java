@@ -30,14 +30,17 @@ public class StringUtilImpl implements StringUtils {
 
     @Override
     public int[] findWord(String text, String word) throws NullPointerException {
+        if (word.length() == 0) {
+            throw new NullPointerException("Слово не задано!!!");
+        }
         ArrayList<Integer> words = new ArrayList<>();
         for (int i = -1; (i = text.indexOf(word, i + 1)) != -1; i++) {
             words.add(i);
         }
-        if (words.size() == 0) {
+        if (words.size() == 0 || text.length() == 0) {
             throw new NullPointerException("Не найдено ни одного слова " + word);
         }
-       int[] result = new int[words.size()];
+        int[] result = new int[words.size()];
         for (int i = 0; i < words.size(); i++) {
             result[i] = words.get(i);
         }

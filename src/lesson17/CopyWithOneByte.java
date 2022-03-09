@@ -5,7 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class CopyWithOneByte implements CopyUtils{
+public class CopyWithOneByte implements CopyUtils {
     @Override
     public void copy(String from, String to) {
         try {
@@ -23,8 +23,7 @@ public class CopyWithOneByte implements CopyUtils{
             bis.close();
             bos.flush(); //освобождаем буфер (принудительно записываем содержимое буфера в файл)
             bos.close(); //закрываем поток записи (обязательно!)
-        }
-        catch (java.io.IOException e) {
+        } catch (java.io.IOException e) {
             e.printStackTrace();
         }
     }
