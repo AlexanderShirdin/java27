@@ -8,7 +8,6 @@ public class Main {
         CopyWithGuava copyWithGuava = new CopyWithGuava();
         CopyStream copyStream = new CopyStream();
         CopyChannel copyChannel = new CopyChannel();
-        CopySE7 copySE7 = new CopySE7();
 
         long start1 = System.currentTimeMillis();
         copyWithOneByte.copy("D:\\Distribution\\Games\\WOLF3D BRUTAL.zip", "C:\\Users\\cptbl\\Desktop\\WOLF3D BRUTAL1.zip");
@@ -39,10 +38,5 @@ public class Main {
         copyChannel.copy("D:\\Distribution\\Games\\WOLF3D BRUTAL.zip", "C:\\Users\\cptbl\\Desktop\\WOLF3D BRUTAL6.zip");
         long end6 = System.currentTimeMillis();
         System.out.println("Копирование с Chanel: " + (end6 - start6));
-
-        long start7 = System.currentTimeMillis();
-        copySE7.copy("D:\\Distribution\\Games\\WOLF3D BRUTAL.zip", "C:\\Users\\cptbl\\Desktop\\WOLF3D BRUTAL7.zip");
-        long end7 = System.currentTimeMillis();
-        System.out.println("Копирование с SE7: " + (end7 - start7));
     }
 }
