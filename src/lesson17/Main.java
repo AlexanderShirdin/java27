@@ -6,6 +6,8 @@ public class Main {
         CopyWithNio copyWithNio = new CopyWithNio();
         CopyWithApache copyWithApache = new CopyWithApache();
         CopyWithGuava copyWithGuava = new CopyWithGuava();
+        CopyStream copyStream = new CopyStream();
+        CopyChannel copyChannel = new CopyChannel();
 
         long start1 = System.currentTimeMillis();
         copyWithOneByte.copy("D:\\Distribution\\Games\\WOLF3D BRUTAL.zip", "C:\\Users\\cptbl\\Desktop\\WOLF3D BRUTAL1.zip");
@@ -26,5 +28,15 @@ public class Main {
         copyWithGuava.copy("D:\\Distribution\\Games\\WOLF3D BRUTAL.zip", "C:\\Users\\cptbl\\Desktop\\WOLF3D BRUTAL4.zip");
         long end4 = System.currentTimeMillis();
         System.out.println("Копирование с Guava: " + (end4 - start4));
+
+        long start5 = System.currentTimeMillis();
+       copyStream.copy("D:\\Distribution\\Games\\WOLF3D BRUTAL.zip", "C:\\Users\\cptbl\\Desktop\\WOLF3D BRUTAL5.zip");
+        long end5 = System.currentTimeMillis();
+        System.out.println("Копирование с Stream: " + (end5 - start5));
+
+        long start6 = System.currentTimeMillis();
+        copyChannel.copy("D:\\Distribution\\Games\\WOLF3D BRUTAL.zip", "C:\\Users\\cptbl\\Desktop\\WOLF3D BRUTAL6.zip");
+        long end6 = System.currentTimeMillis();
+        System.out.println("Копирование с Chanel: " + (end6 - start6));
     }
 }
