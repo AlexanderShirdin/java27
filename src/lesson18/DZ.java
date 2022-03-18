@@ -7,7 +7,7 @@ import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
 import java.security.SecureRandom;
 
-public class Main5 {
+public class DZ {
     public static void main(String[] args) throws Exception {
         SecureRandom random = SecureRandom.getInstanceStrong();
         byte[] rnd = new byte[16];
