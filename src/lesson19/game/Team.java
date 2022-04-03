@@ -1,4 +1,4 @@
-package lesson19;
+package lesson19.game;
 
 import java.util.ArrayList;
 import java.util.List;

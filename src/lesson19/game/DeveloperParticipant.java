@@ -1,4 +1,4 @@
-package lesson19;
+package lesson19.game;
 
 public class DeveloperParticipant extends Participant{
 

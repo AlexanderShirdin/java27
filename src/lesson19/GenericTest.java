@@ -6,11 +6,11 @@ import java.util.List;
 public class GenericTest {
     public static void main(String[] args) {
 
-        List<Number> strings = new ArrayList<>();
+        List<Object> strings = new ArrayList<>();
 
-        strings.add(5);
-        strings.add(3.14);
-        strings.add(4);
+        strings.add("Java");
+        strings.add("js");
+        strings.add("s");
 
         for (Object string : strings) {
             String s = (String) string;
