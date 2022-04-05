@@ -16,6 +16,11 @@ public class MainGame {
         analystTeam.addParticipantToTeam(analystParticipant);
         analystTeam.addParticipantToTeam(analystParticipant2);
 
+        Team<AnalystParticipant> analystTeam2 = new Team<>();
+        analystTeam2.setName("Стратеги");
+        analystTeam2.addParticipantToTeam(analystParticipant);
+        analystTeam2.addParticipantToTeam(analystParticipant2);
+
         Team<DeveloperParticipant> developerTeam = new Team<>();
         developerTeam.setName("Тигры");
         developerTeam.addParticipantToTeam(developerParticipant);
@@ -26,10 +31,8 @@ public class MainGame {
         developerTeam2.addParticipantToTeam(developerParticipant3);
         developerTeam2.addParticipantToTeam(developerParticipant4);
 
-
-
-
         developerTeam.winnerTeam(developerTeam2);
+        analystTeam.winnerTeam(analystTeam2);
 
     }
 }

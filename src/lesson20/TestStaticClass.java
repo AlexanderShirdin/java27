@@ -2,13 +2,9 @@ package lesson20;
 
 public class TestStaticClass {
     public static void main(String[] args) {
-
-      Car car = new Car ("Blue", "Lada", 200);
+        Car car = new Car("Blue", "Lada", 200);
         System.out.println(car);
-
-
         Car.Engine car1 = car.new Engine(400);
-
     }
 }
 
@@ -23,7 +19,7 @@ class Car {
         this.engine = this.new Engine(hoursPower);
     }
 
-    static void print(){
+    static void print() {
         System.out.println("I am static method");
     }
 
@@ -42,7 +38,6 @@ class Car {
 
         public Engine(int hoursPower) {
             this.hoursPower = hoursPower;
-            System.out.println(color);
         }
 
         @Override

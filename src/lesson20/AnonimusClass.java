@@ -2,8 +2,7 @@ package lesson20;
 
 public class AnonimusClass {
     public static void main(String[] args) {
-
-        A a = new A (){
+        A a = new A() {
             @Override
             public boolean check() {
                 return true;
@@ -12,15 +11,14 @@ public class AnonimusClass {
     }
 }
 
-interface  A{
+interface A {
     boolean check();
 }
 
-class B implements A{
+class B implements A {
 
     @Override
-    public boolean check(){
+    public boolean check() {
         return true;
     }
-
 }
