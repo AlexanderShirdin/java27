@@ -1,7 +1,9 @@
 package lesson20;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.TreeSet;
 
 public class TestStudents {
 
@@ -32,6 +34,13 @@ public class TestStudents {
         Students student4 = new Students("Pavel", "Mironov", 35, 'm', 5, 9.1);
         Students student5 = new Students("Anna", "Evdokimova", 19, 'f', 1, 7.0);
 
+//        TreeSet<Students> set = new TreeSet<>(new Comparator<Students>() {
+//            @Override
+//            public int compare(Students o1, Students o2) {
+//                return o1.getName().compareTo(o2.getName());
+//            }
+//        });
+
         List<Students> list = new ArrayList<>();
 
         list.add(student);
@@ -43,10 +52,14 @@ public class TestStudents {
         System.out.println("___________________________________");
         filterStudentsBAvgMArk(list, 8.0);
         System.out.println("___________________________________");
+
+//                FilterImpl filterImpl = new FilterImpl();
+//                filteringStudent(list, new FilterImpl());
+
         filteringStudent(list, new Filter() {
             @Override
             public boolean check(Students student) {
-                return student.getCourse()>2;
+                return student.getCourse() > 2;
             }
         });
     }
