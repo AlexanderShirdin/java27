@@ -5,13 +5,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        PTM ptm = new PTM(2303700, 7.941, 58, 6, 650000, 11);
-        PTM ptm2 = new PTM(2303700, 7.941, 58, 6, 100000, 4);
+        PTM ptm = new PTM(2303700, 7.74, 58, 6, 650000, 11);
         ptm.monthlyPayment();
     }
 }
 
-class PTM implements CreditCalculator {
+class PTM {
     Integer LoanAmount;
     Double InterestRate;
     Integer LengthOfLoan;
@@ -26,22 +25,13 @@ class PTM implements CreditCalculator {
         InterestRate = interestRate / 100;
         LengthOfLoan = lengthOfLoan;
 
-        EarlyPayment = earlyPayment;
-
         BeginningOfPeriod = beginningOfPeriod - 1;
+
+        EarlyPayment = earlyPayment;
         EarlyPaymentMonth = earlyPaymentMonth;
     }
 
-
-//    @Override
-//    public String toString() {
-//        return "Ежемесячный платеж = " + Math.round(((LoanAmount * Math.pow((1 + InterestRate / 12), LengthOfLoan)) * InterestRate / 12) / (Math.pow((1 + InterestRate / 12), LengthOfLoan) - 1)) +
-//                " Проценты = " + Math.round(InterestRate / 12 * LoanAmount) +
-//                " Основной долг = " + Math.round(((LoanAmount * Math.pow((1 + InterestRate / 12), LengthOfLoan)) * InterestRate / 12) / (Math.pow((1 + InterestRate / 12), LengthOfLoan) - 1) - (InterestRate / 12 * LoanAmount));
-//    }
-
-    @Override
-    public double monthlyPayment() {
+    public void monthlyPayment() {
         List<String> mountly = new ArrayList<>();
 
         List<Number> one = new ArrayList<>();
@@ -85,7 +75,6 @@ class PTM implements CreditCalculator {
             mountly.add("Декабрь " + year);
             year++;
 
-
             one.add(Math.round(paymentForInterest));
             two.add(Math.round(debtPayment));
             four.add(Math.round(paymentForLoan));
@@ -96,10 +85,9 @@ class PTM implements CreditCalculator {
                 remainingDebt = remainingDebt - EarlyPayment;
                 paymentForLoan= (((remainingDebt * Math.pow((1 + InterestRate / 12), LengthOfLoan-EarlyPaymentMonth)) * InterestRate / 12) / (Math.pow((1 + InterestRate / 12), LengthOfLoan-EarlyPaymentMonth) - 1));
             }
-
             three.add(Math.round(remainingDebt));
+
             System.out.println((numberOfMonths) + " | " + mountly.get(i + BeginningOfPeriod) + " | " + four.get(i) + " | " + one.get(i) + " | " + two.get(i) + " | " + three.get(i) + " | " + five.get(i));
         }
-        return 0;
     }
 }
