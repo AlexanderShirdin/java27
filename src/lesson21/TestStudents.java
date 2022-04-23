@@ -3,7 +3,9 @@ package lesson21;
 import lesson20.Students;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -30,12 +32,12 @@ public class TestStudents {
         Students student4 = new Students("Pavel", "Mironov", 35, 'm', 5, 9.1);
         Students student5 = new Students("Anna", "Evdokimova", 19, 'f', 1, 7.0);
 
-//        TreeSet<Students> set = new TreeSet<>(new Comparator<Students>() {
-//            @Override
-//            public int compare(Students o1, Students o2) {
-//                return o1.getName().compareTo(o2.getName());
-//            }
-//        });
+        TreeSet<Students> set = new TreeSet<>(new Comparator<Students>() {
+            @Override
+            public int compare(Students o1, Students o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
 
         List<Students> list = new ArrayList<>();
         list.add(student);

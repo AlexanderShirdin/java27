@@ -66,17 +66,18 @@ public class TestCollect {
         IntStream.generate(() -> 8)
                 .skip(5)
                 .limit(10)
-                .forEach(s -> System.out.println("Method iterate with 2 params " + s));
+                .forEach(s -> System.out.println("Method generate " + s));
         System.out.println();
         IntStream
                 .iterate(2, num -> ++num)
-                .limit(10).forEach(System.out::print);
+                .limit(10)
+                .forEach(s -> System.out.println("Method iterate with 2 params " + s));
         System.out.println();
         IntStream
                 .iterate(0, num -> num < 10, num -> ++num)
                 .forEach(s -> System.out.println("Method iterate with 3 params " + s));
-
-        IntStream.rangeClosed(1, 9).forEach(s -> System.out.println("Method rangeClose " + s));
+        System.out.println();
+        IntStream.rangeClosed(1, 9).forEach(s -> System.out.println("Method rangeClosed " + s));
 
         Stream.of(student, student2, student3, student4, student5)
                 .flatMapToInt(s -> IntStream.range(0, s.getAge())).forEach(System.out::println);
